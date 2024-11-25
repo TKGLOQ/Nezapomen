@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Reminder</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: black;
+        }
+        .reminder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            color: white;
+            text-align: center;
+            animation: colorChange 2s infinite;
+        }
+        @keyframes colorChange {
+            0% { color: red; }
+            25% { color: yellow; }
+            50% { color: green; }
+            75% { color: blue; }
+            100% { color: purple; }
+        }
+        .animal {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: jump 3s infinite ease-in-out;
+        }
+        .cat {
+            background-image: url('https://placekitten.com/100/100');
+        }
+        .dog {
+            background-image: url('https://placedog.net/100/100');
+        }
+        @keyframes jump {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-200px); }
+        }
+        .firework {
+            position: absolute;
+            border-radius: 50%;
+            animation: explode 1s infinite ease-out;
+        }
+        @keyframes explode {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="reminder">Reminder: Don't forget to play Among Us/Roblox with Johnny on Wednesday at 13:30</div>
+
+    <script>
+        const animals = ['cat', 'dog'];
+        for (let i = 0; i < 10; i++) {
+            const animal = document.createElement('div');
+            animal.classList.add('animal', animals[i % 2]);
+            animal.style.left = Math.random() * window.innerWidth + 'px';
+            animal.style.top = Math.random() * window.innerHeight + 'px';
+            animal.style.animationDelay = Math.random() + 's';
+            document.body.appendChild(animal);
+        }
+
+        setInterval(() => {
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            firework.style.left = Math.random() * window.innerWidth + 'px';
+            firework.style.top = Math.random() * window.innerHeight + 'px';
+            firework.style.width = firework.style.height = Math.random() * 20 + 20 + 'px';
+            firework.style.background = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.7)`;
+            document.body.appendChild(firework);
+            setTimeout(() => firework.remove(), 1000);
+        }, 300);
+    </script>
+</body>
+</html>
