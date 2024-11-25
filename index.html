@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun Reminder</title>
+    <title>Zábavné připomenutí</title>
     <style>
         body {
             margin: 0;
@@ -37,10 +37,10 @@
             animation: jump 3s infinite ease-in-out;
         }
         .cat {
-            background-image: url('https://placekitten.com/100/100');
+            background-image: url('https://placekitten.com/100/100'); /* Placeholder for a cat image */
         }
         .dog {
-            background-image: url('https://placedog.net/100/100');
+            background-image: url('https://placedog.net/100/100'); /* Placeholder for a dog image */
         }
         @keyframes jump {
             0%, 100% { transform: translateY(0); }
@@ -64,9 +64,11 @@
     </style>
 </head>
 <body>
-    <div class="reminder">Reminder: Don't forget to play Among Us/Roblox with Johnny on Wednesday at 13:30</div>
+    <div class="reminder">Připomenutí: nezapomeňte si zahrát Mezi Námi / 
+        Roblox s Markem ve středu ve 13:30</div>
 
     <script>
+        // Generate 5 cats and 5 dogs that jump around the screen
         const animals = ['cat', 'dog'];
         for (let i = 0; i < 10; i++) {
             const animal = document.createElement('div');
@@ -77,6 +79,7 @@
             document.body.appendChild(animal);
         }
 
+        // Fireworks effect
         setInterval(() => {
             const firework = document.createElement('div');
             firework.classList.add('firework');
